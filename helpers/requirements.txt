@@ -1,0 +1,4 @@
+psycopg2_binary==2.7.6.1
+tabulate==0.8.2
+SQLAlchemy==1.2.15
+psycopg2==2.7.6.1
