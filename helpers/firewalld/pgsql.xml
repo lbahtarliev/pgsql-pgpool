@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>PostgreSQL</short>
+  <description>PostgreSQL Database Server</description>
+  <!-- PGPool SQL Port -->
+  <port protocol="tcp" port="5432"/>
+  <!-- PGPool PCP Port -->
+  <port protocol="tcp" port="5433"/>
+  <!-- PGPool WD Control Port -->
+  <port protocol="tcp" port="5434"/>
+  <!-- PGPool WD Heartbeat Port -->
+  <port protocol="udp" port="5435"/>
+  <!-- PostgreSQL SQL Port -->
+  <port protocol="tcp" port="55432"/>
+</service>
