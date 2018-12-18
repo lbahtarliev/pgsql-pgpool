@@ -19,12 +19,12 @@ state, backend_type from pg_stat_activity;" postgres
 echo "------------------------------------------------------------------------------------------"
 $psql -q -p $sport $pargs "select * from pg_replication_slots;"
 echo "------------------------------------------------------------------------------------------"
-$psql -t -q -p $sport $pargs "select pid,status,last_msg_send_time,last_msg_receipt_time,latest_end_time,slot_name from pg_stat_wal_receiver;"
+$psql -q -p $sport $pargs "select pid,status,last_msg_send_time,last_msg_receipt_time,latest_end_time,slot_name from pg_stat_wal_receiver;"
 echo "------------------------------------------------------------------------------------------"
-$psql -t -q -p $sport $pargs "select checkpoints_timed,checkpoints_req,checkpoint_write_time, \
+$psql -q -p $sport $pargs "select checkpoints_timed,checkpoints_req,checkpoint_write_time, \
 checkpoint_sync_time,buffers_checkpoint,buffers_alloc,stats_reset from pg_stat_bgwriter;"
 echo "------------------------------------------------------------------------------------------"
-$psql -t -q -p $sport $pargs "select pid,usesysid,usename,application_name,client_addr,client_hostname, \
+$psql -q -p $sport $pargs "select pid,usesysid,usename,application_name,client_addr,client_hostname, \
 client_port,backend_start,state,sync_priority,sync_state from pg_stat_replication;"
 echo "------------------------------------------------------------------------------------------"
 #select * from pg_stat_progress_vacuum;
