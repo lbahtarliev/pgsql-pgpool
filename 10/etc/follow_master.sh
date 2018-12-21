@@ -27,7 +27,7 @@ pg_ctl=/usr/pgsql-10/bin/pg_ctl
 cluster0=$mydir/data0
 cluster1=$mydir/data1
 cluster2=$mydir/data2
-PCP_PORT=11001
+PCP_PORT=5433
 export PCPPASSFILE=/var/lib/pgsql/10/pcppass
 date >> $log
 echo "failed_node_id $failed_node_id failed_host_name $failed_host_name failed_port $failed_port failed_db_cluster $failed_db_cluster new_master_id $new_master_id old_master_id $old_master_id new_master_host_name $new_master_host_name old_primary_node_id $old_primary_node_id new_master_port_number $new_master_port_number new_master_db_cluster $new_master_db_cluster" >> $log
@@ -38,7 +38,7 @@ then
 	$pg_ctl -w -m f -D $failed_db_cluster stop >> $log 2>&1
 	sleep 10
 	# recovery the node
-	pcp_recovery_node -w -h localhost -p $PCP_PORT -n $failed_node_id >> $log 2>&1
+	/usr/pgpool-10/bin/pcp_recovery_node -w -h localhost -p $PCP_PORT -n $failed_node_id >> $log 2>&1
 else
 	echo "$failed_db_cluster is not running. skipping follow master command." >> $log
 fi

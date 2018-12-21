@@ -1,5 +1,28 @@
 #!/bin/bash
 
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+yum install yum-utils
+
+yum updateinfo
+yum makecache
+
+#yum-config-manager --enable remi-php55   # [Install PHP 5.5]
+yum-config-manager --enable remi-php56   # [Install PHP 5.6]
+#yum-config-manager --enable remi-php72   # [Install PHP 7.2]
+#yum-config-manager --enable remi-php56   # [Install PHP 5.6]
+
+yum -y install php \
+               php-mcrypt \
+               php-cli \
+               php-gd \
+               php-curl \
+               php-mysql \
+               php-ldap \
+               php-zip \
+               php-fileinfo
+
 yum -y install open-vm-tools \
 			openssh-server \
 			binutils \

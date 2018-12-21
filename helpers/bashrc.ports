@@ -1,3 +1,3 @@
 export PGPOOL_PORT=5432
 export PCP_PORT=5433
-export PCPPASSFILE=/var/lib/pgsql/pcppass
+export PCPPASSFILE=/var/lib/pgsql/.pcppass
